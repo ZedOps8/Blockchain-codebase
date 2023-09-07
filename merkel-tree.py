@@ -1,19 +1,19 @@
 import hashlib
 
-# Define a function to calculate the hash of a data element
+# here function to calculate the hash of data
 def calculate_hash(data):
     return hashlib.sha256(data.encode()).hexdigest()
 
 # List of data elements (transactions)
 data_list = ["Transaction1", "Transaction2", "Transaction3", "Transaction4"]
 
-# Step 1: Calculate the hash for each data element and store them in a list
+# Then here Calculating the hash for each data element and store them in a list
 hashed_data_list = [calculate_hash(data) for data in data_list]
 
-# Step 2: Create leaf nodes of the Merkle tree
+# leaf nodes of the Merkle tree
 leaf_nodes = hashed_data_list
 
-# Step 3: Build the Merkle tree from the leaf nodes
+# Building the Merkle tree from the leaf nodes
 while len(leaf_nodes) > 1:
     new_level = []
     # Pair adjacent nodes, hash them together, and store the result in the new level
